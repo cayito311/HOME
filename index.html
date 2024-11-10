@@ -52,6 +52,29 @@
     </style>
 </head>
 <body>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyC9vN0bPvj0k5ih8z5s5iMOR4Ev3Sbrrvw",
+    authDomain: "barber-shop-46956.firebaseapp.com",
+    projectId: "barber-shop-46956",
+    storageBucket: "barber-shop-46956.firebasestorage.app",
+    messagingSenderId: "544272584983",
+    appId: "1:544272584983:web:639794b96fb441d540a752",
+    measurementId: "G-5G9DGSZDH3"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
     <header>
         <h1>Barbería Elegante</h1>
         <p>Bienvenido al sitio web de nuestra barbería</p>
