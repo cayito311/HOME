@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Dueño - Barbería Elegante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2e2e2e;
+            color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #444;
+            color: #f3f3f3;
+            text-align: center;
+            padding: 20px;
+        }
+        #loginForm {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        #loginForm input[type="password"], #loginForm button {
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+        }
+        #loginForm input[type="password"] {
+            background-color: #555;
+            color: #f3f3f3;
+        }
+        #loginForm button {
+            background-color: #5a9;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #loginForm button:hover {
+            background-color: #48a;
+        }
+        .client-list {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        .client {
+            background-color: #444;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .client h3 {
+            color: #eee;
+            margin: 0;
+        }
+        .client p {
+            color: #ccc;
+            margin: 5px 0;
+        }
+        .delete-btn {
+            background-color: #d9534f;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Panel del Dueño</h1>
+    </header>
+    <main>
+        <div id="loginForm">
+            <h2>Acceso del Dueño</h2>
+            <input type="password" id="password" placeholder="Ingrese su clave">
+            <button onclick="checkPassword()">Ingresar</button>
+        </div>
+        
+        <section class="client-list" id="panelDueño" style="display: none;">
+            <h2>Clientes y Frecuencia de Visitas</h2>
+            <div id="listaClientes"></div>
+        </section>
+    </main>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            if (password === "barber123") {
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("panelDueño").style.display = "block";
+                loadCitas();
+            } else {
+                alert("Clave incorrecta");
+            }
+        }
+
+        function loadCitas() {
+            const citas = JSON.parse(localStorage.getItem("citas")) || [];
+            const listaClientes = document.getElementById("listaClientes");
+            listaClientes.innerHTML = "";
+
+            citas.forEach((cita, index) => {
+                const clienteDiv = document.createElement("div");
+                clienteDiv.classList.add("client");
+                clienteDiv.innerHTML = `
+                    <h3>Nombre del Cliente: ${cita.nombre}</h3>
+                    <p>Fecha: ${cita.fecha}</p>
+                    <p>Hora: ${cita.hora}</p>
+                    <button class="delete-btn" onclick="deleteCita(${index})">Eliminar</button>
+                `;
+                listaClientes.appendChild(clienteDiv);
+            });
+        }
+
+        function deleteCita(index) {
+            let citas = JSON.parse(localStorage.getItem("citas")) || [];
+            citas.splice(index, 1);
+            localStorage.setItem("citas", JSON.stringify(citas));
+            loadCitas();
+        }
+    </script>
+</body>
+</html>
