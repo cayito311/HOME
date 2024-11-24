@@ -131,31 +131,63 @@
             font-weight: bold;
         }
 
-
-        /* Botón de Retroceso */
-        .back-btn {
-            background-color: #FFA500;
-            color: #000000;
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: bold;
-        }
-
-        .back-btn:hover {
-            background-color: #FFD700;
-            transform: scale(1.05);
-        }
-        .contact-info {
-    color: #FFD700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 5px; /* Espacio entre los elementos */
+/* Estilos para el botón */
+.back-btn {
+    background-color: #FFA500; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 14px 28px; /* Espaciado interno */
+    margin-bottom: 20px; /* Espacio debajo del botón */
+    border: none; /* Sin borde */
+    border-radius: 12px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 1.1em; /* Tamaño del texto */
+    font-weight: 600; /* Grosor del texto */
+    transition: all 0.3s ease; /* Efecto suave para las transiciones */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
+
+.back-btn:hover {
+    background-color: #FFA500; /* Color más oscuro al pasar el cursor */
+    transform: translateY(-5px); /* Levanta el botón un poco */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* Más sombra al hacer hover */
+}
+
+.back-btn:active {
+    background-color: #FFA500; /* Color aún más oscuro cuando se hace clic */
+    transform: translateY(2px); /* El botón baja un poco al hacer clic */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra más suave al presionar */
+}
+/* Estilos para el botón "Agregar al carrito" */
+.add-to-cart-btn {
+    background-color: #FFA500; /* Color verde para el botón */
+    color: white; /* Color del texto */
+    padding: 12px 24px; /* Espaciado interno */
+    margin: 10px 0; /* Espaciado superior e inferior */
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 1.1em; /* Tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    transition: all 0.3s ease; /* Efecto suave para las transiciones */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+.add-to-cart-btn:hover {
+    background-color: #FFA500; /* Color más oscuro cuando el mouse pasa */
+    transform: translateY(-3px); /* El botón se eleva un poco */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+}
+
+/* Efecto cuando el botón es presionado */
+.add-to-cart-btn:active {
+    background-color: #FFA500; /* Color más oscuro cuando se hace clic */
+    transform: translateY(1px); /* El botón se hunde un poco */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+}
+
+
 
     </style>
 </head>
